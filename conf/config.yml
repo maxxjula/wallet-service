@@ -1,0 +1,19 @@
+---
+app:
+  name: "wallet-service"
+  port: 8080
+mysql:
+  username: "root"
+  password: "123456789"
+  database: "test"
+  host: "127.0.0.1"
+  port: "3306"
+  maxidle: 50
+  maxopen: 50
+  maxlifetime: 30m
+  timeout: 5s
+  readtimeout: 5s
+  writetimeout: 5s
+  parsetime: true
+  debug: true
+  migrate: false
