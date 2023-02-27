@@ -49,7 +49,7 @@
 }
 
 3.6 API deactivate & activate a wallet
-    http://localhost:8080/wallet-status
+    http://localhost:8080/wallet-status method POST
     {
     "account_no" : "1234444444",
     "status": "A"
