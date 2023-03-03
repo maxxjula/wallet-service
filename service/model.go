@@ -1,26 +1,5 @@
 package service
 
-import "time"
-
-type Register struct {
-	UserName string    `่json:"username"`
-	Password string    `่json:"password"`
-	Name     string    `่json:"name"`
-	Age      int64     `่json:"age"`
-	Brithday time.Time `่json:"brithday"`
-}
-
-type Response struct {
-	Name string `่json:"name,omitempty"`
-	// Age  *int   `่json:"age,omitempty"`
-}
-type Request struct {
-	UserName string `่json:"username"`
-	Password string `่json:"password"`
-}
-
-//++++++++++++++++++++++++++++++++
-
 type ResponseAllWallet struct {
 	RespCode    string           `json:"respCode"`
 	RespDesc    string           `json:"respDesc"`

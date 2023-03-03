@@ -36,7 +36,7 @@ func main() {
 	r.GET("/wallet-detail", sers.ExecuteGetWalletDetail)
 	r.POST("/add-balance", sers.ExecuteAddBalance)
 	r.POST("/deduct-balance", sers.ExecuteDeductBalance)
-	r.POST("/wallet-status", sers.ExecuteWalletStatus)
+	r.PUT("/wallet-status", sers.ExecuteWalletStatus)
 	r.Logger.Fatal(r.Start(":"+viper.GetString("app.port")+""))
 
 }
