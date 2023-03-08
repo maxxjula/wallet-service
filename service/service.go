@@ -12,6 +12,9 @@ type Servicer interface {
 	ApiPostAddBalance(c echo.Context, req RequestAddBalance) *ResponseAddBalance
 	ApiPostDeductBalance(c echo.Context, req RequestDeductBalance) *ResponseDeductBalance
 	ApiPostWalletStatus(c echo.Context, req RequestWalletStatus) *ResponseWalletStatus
+
+	ApiTest1(c echo.Context, req ReqTest1) *ResTest1
+
 }
 
 type Dber interface {

@@ -37,7 +37,11 @@ func main() {
 	r.POST("/add-balance", sers.ExecuteAddBalance)
 	r.POST("/deduct-balance", sers.ExecuteDeductBalance)
 	r.PUT("/wallet-status", sers.ExecuteWalletStatus)
-	r.Logger.Fatal(r.Start(":"+viper.GetString("app.port")+""))
+
+	//+++++++++++++++++++test api
+	r.POST("/test1", sers.ExecuteTest1)
+
+	r.Logger.Fatal(r.Start(":" + viper.GetString("app.port") + ""))
 
 }
 func initViper() {

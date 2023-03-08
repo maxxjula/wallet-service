@@ -1,7 +1,6 @@
 package service
 
 import (
-	"fmt"
 	"net/http"
 
 	"github.com/labstack/echo/v4"
@@ -17,7 +16,7 @@ func NewHandle(service Servicer) *Handle {
 }
 
 func (h *Handle) ExecuteGetAllWallet(c echo.Context) error {
-	fmt.Println("hi test")
+	// fmt.Println("hi test")
 	data := h.service.ApiGetAllWallet(c)
 
 	return c.JSON(http.StatusOK, data)
@@ -136,4 +135,45 @@ func (h *Handle) ExecuteWalletStatus(c echo.Context) error {
 	data := h.service.ApiPostWalletStatus(c, req)
 
 	return c.JSON(http.StatusOK, data)
+}
+
+func (h *Handle) ExecuteTest1(c echo.Context) error {
+	var req ReqTest1
+	var res ResTest1
+	var reqH ReqHeaderTest1
+	// var header http.Header
+	// reqH.AppID = header.Get("app-id")
+
+	SetHeader(c.Request().Header, &reqH)
+
+	// fmt.Printf("req =%v\n", req)
+	if err := c.Bind(&req); err != nil {
+		res.RespCode = "SV002"
+		res.RespDesc = "invalid request"
+		res.RespDisplay = err.Error()
+		return c.JSON(http.StatusBadRequest, res)
+	}
+
+	if err := validator.Validate(req); err != nil {
+		res.RespCode = "SV002"
+		res.RespDesc = "invalid request"
+		res.RespDisplay = err.Error()
+		return c.JSON(http.StatusBadRequest, res)
+	}
+	// fmt.Printf("header req =%v\n", reqH)
+	if err := validator.Validate(reqH); err != nil {
+		res.RespCode = "SV002"
+		res.RespDesc = "invalid request header"
+		res.RespDisplay = err.Error()
+		return c.JSON(http.StatusBadRequest, res)
+	}
+
+	data := h.service.ApiTest1(c, req)
+
+	return c.JSON(http.StatusOK, data)
+}
+
+func SetHeader(header http.Header, reqHeader *ReqHeaderTest1) {
+	reqHeader.AppID = header.Get("app-id")
+
 }

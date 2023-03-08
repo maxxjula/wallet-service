@@ -97,3 +97,19 @@ type ResponseWalletStatus struct {
 	RespDesc    string `json:"respDesc"`
 	RespDisplay string `json:"respDisplay"`
 }
+
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ test api
+type ReqHeaderTest1 struct {
+	AppID string `validate:"nonzero" json:"app-id"`
+}
+
+type ReqTest1 struct {
+	AccountNo string  `validate:"nonzero" json:"account_no"`
+	Amount    float64 `json:"amount"`
+}
+
+type ResTest1 struct {
+	RespCode    string `json:"respCode"`
+	RespDesc    string `json:"respDesc"`
+	RespDisplay string `json:"respDisplay"`
+}
